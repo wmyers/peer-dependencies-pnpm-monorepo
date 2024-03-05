@@ -1,9 +1,9 @@
 function getVersionFromString (versionStr) {
   return versionStr.includes('(') ? versionStr.substring(0, versionStr.indexOf('(')) : versionStr.substring(0);
 }
-// A slightly hacky script to warn about basic mismatches in peer dependency versions between local shared workspace packages and local consuming workspace packages (apps).
-// Unfortunately could not (yet) figure out how to use the semver package here, as it's a chicken-'n'-egg with `pnpm install`.
-// This script also 'corrects' the pnpm-lock.yaml, which moves workspace package peerDependencies into dependencies, by moving them into devDependencies instead.
+// A slightly hacky script to warn about basic mismatches in peer dependency versions between local shared workspace packages (in `packages` folder) and local consuming workspace packages (in `apps` folder).
+// Unfortunately unable to use `semver` package as it currently does not seem possible to require packages in `.pnpmfile.cjs` (see: https://github.com/pnpm/pnpm/issues/6731)
+// This script also updates the pnpm-lock.yaml (which automatically moves workspace package peerDependencies into dependencies) by moving them into devDependencies instead.
 // NB in this repo the peerDependencies for shared package(s) are externalized by the rollup config anyway.
 function refactorSharedPackageDependencies (lockfile) {
   // from the 'importers' object, get a list of shared packages (names start with 'packages/'), and consumer packages (names start with 'apps/')
@@ -26,7 +26,7 @@ function refactorSharedPackageDependencies (lockfile) {
       if (consumerWSPkgDependencyValues.find(val => val.endsWith(sharedWSPkgName))){
         // check each of the shared package deps and see if they are also in the consumer package deps
         for (const sharedWSPkgDependencyName of sharedWSPkgDependencyNames) {
-          // if they are then they are peer deps for the shared package
+          // if they are, then they are peer deps for the shared package
           if (consumerWSPkgDependencyNames.includes(sharedWSPkgDependencyName)){
             // check the version of the peer dep in the consumer matches the shared package
             let sharedWSPkgDependencyVersion = getVersionFromString(sharedWSPkgDependencies[sharedWSPkgDependencyName]);
