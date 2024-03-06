@@ -77,13 +77,6 @@ importers:
         injected: true
 
   packages/ui-components:
-    dependencies:
-      react:
-        specifier: 17 || 18
-        version: 18.2.0
-      react-dom:
-        specifier: 17 || 18
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: '25'
@@ -95,11 +88,17 @@ importers:
         specifier: '11'
         version: 11.1.6(rollup@4.12.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/react':
-        specifier: '17'
-        version: 17.0.75
+        specifier: '18'
+        version: 18.2.58
       '@types/react-dom':
-        specifier: '17'
-        version: 17.0.25
+        specifier: '18'
+        version: 18.2.19
+      react:
+        specifier: 17 || 18
+        version: 18.2.0
+      react-dom:
+        specifier: 17 || 18
+        version: 18.2.0(react@18.2.0)
       rollup:
         specifier: '4'
         version: 4.12.0
@@ -2241,7 +2240,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2265,7 +2263,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /reflect.getprototypeof@1.0.5:
     resolution: {integrity: sha512-62wgfC8dJWrmxv44CA36pLDnP6KKl3Vhxb7PL+8+qrrFMMoJij4vgiMP8zV4O8+CBMXY1mHxI5fITGHXFHVmQQ==}
@@ -2398,7 +2395,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2735,8 +2731,8 @@ packages:
     name: ui-components-package
     requiresBuild: true
     peerDependencies:
-      react: 17 || 18
-      react-dom: 17 || 18
+      react: '17 '
+      react-dom: '17'
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
@@ -2748,8 +2744,8 @@ packages:
     name: ui-components-package
     requiresBuild: true
     peerDependencies:
-      react: 17 || 18
-      react-dom: 17 || 18
+      react: '17 '
+      react-dom: '17'
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
