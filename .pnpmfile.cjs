@@ -1,11 +1,12 @@
 function getVersionFromString (versionStr) {
   return versionStr.includes('(') ? versionStr.substring(0, versionStr.indexOf('(')) : versionStr.substring(0);
 }
-// A slightly hacky script to warn about basic mismatches in peer dependency versions between local shared workspace packages (in `packages` folder) and local consuming workspace packages (in `apps` folder).
-// Unfortunately unable to use `semver` package as it currently does not seem possible to require packages in `.pnpmfile.cjs` (see: https://github.com/pnpm/pnpm/issues/6731)
+
+// Use this script if for some reason you aren't getting peer dependencies mismatch warnings (or similar warnings) when running `pnpm install` (possibly if you aren't using dependenciesMeta > injected)
+// This script analyzes package install data before it is serialized to pnpm-lock.yaml. It warns about basic mismatches in peer dependency major versions between local shared workspace packages (in `packages` folder) and local consuming workspace packages (in `apps` folder).
 // This script also updates the pnpm-lock.yaml (which automatically moves workspace package peerDependencies into dependencies) by moving them into devDependencies instead.
-// NB in this repo the peerDependencies for shared package(s) are externalized by the rollup config anyway.
-function refactorSharedPackageDependencies (lockfile) {
+// NB it does not seem currently possible to require packages in `.pnpmfile.cjs` (see: https://github.com/pnpm/pnpm/issues/6731), so unable to use the semver package when comparing package versions.
+function warnForSharedPackageDependencyPeers (lockfile) {
   // from the 'importers' object, get a list of shared packages (names start with 'packages/'), and consumer packages (names start with 'apps/')
   const { importers } = lockfile;
   const sharedWSPkgNames = Object.keys(importers).filter(pkgName => pkgName.startsWith('packages/'));
@@ -62,13 +63,17 @@ function refactorSharedPackageDependencies (lockfile) {
   return lockfile;
 }
 
-
 function afterAllResolved(lockfile) {
-  const { importers } = lockfile;
+  // - uncomment the next two lines for viewing/debugging package install data before it is serialized to pnpm-lock.yaml
+  // const { importers } = lockfile;
   // console.log(importers);
 
-  return refactorSharedPackageDependencies(lockfile);
-  // return lockfile;
+  // - Uncomment this line to use the hacky script above to check versions of peer dependencies
+  // - NB this only works for packages that don't use dependenciesMeta > injected. 
+  // - It is recommended to just use dependenciesMeta > injected instead as it gives correct warnings using semver
+  // return warnForSharedPackageDependencyPeers(lockfile);
+
+  return lockfile;
 }
 
 module.exports = {
