@@ -2,10 +2,10 @@
   "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
     "composite": true,
-    "declarationDir": "dist/types",
-    "declaration": true,
-    "outDir": "dist", 
+    "baseUrl": "src",
     "jsx": "react-jsx",
+    "useDefineForClassFields": true,
+    "types": ["vite/client"]
   },
-  "include": ["src"],
+  "include": ["src"]
 }

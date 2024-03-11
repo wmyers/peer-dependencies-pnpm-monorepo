@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      typescript:
+        specifier: '5'
+        version: 5.3.3
 
   apps/app-A:
     dependencies:
@@ -37,6 +41,46 @@ importers:
         injected: true
 
   apps/app-B:
+    dependencies:
+      react:
+        specifier: '18'
+        version: 18.2.0
+      react-dom:
+        specifier: '18'
+        version: 18.2.0(react@18.2.0)
+      ui-components-package:
+        specifier: workspace:*
+        version: file:packages/ui-components(react-dom@18.2.0)(react@18.2.0)
+    devDependencies:
+      '@types/react':
+        specifier: '18'
+        version: 18.2.58
+      '@types/react-dom':
+        specifier: '18'
+        version: 18.2.19
+      '@vitejs/plugin-react':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@5.1.4)
+      eslint:
+        specifier: ^8.56.0
+        version: 8.57.0
+      eslint-plugin-react:
+        specifier: ^7.33.2
+        version: 7.33.2(eslint@8.57.0)
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.0(eslint@8.57.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.5
+        version: 0.4.5(eslint@8.57.0)
+      vite:
+        specifier: ^5.1.4
+        version: 5.1.4
+    dependenciesMeta:
+      ui-components-package:
+        injected: true
+
+  apps/app-C:
     dependencies:
       react:
         specifier: '18'
@@ -108,9 +152,6 @@ importers:
       tslib:
         specifier: '2'
         version: 2.6.2
-      typescript:
-        specifier: '5'
-        version: 5.3.3
 
 packages:
 
@@ -2731,8 +2772,8 @@ packages:
     name: ui-components-package
     requiresBuild: true
     peerDependencies:
-      react: '17 '
-      react-dom: '17'
+      react: 17 || 18
+      react-dom: 17 || 18
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
@@ -2744,8 +2785,8 @@ packages:
     name: ui-components-package
     requiresBuild: true
     peerDependencies:
-      react: '17 '
-      react-dom: '17'
+      react: 17 || 18
+      react-dom: 17 || 18
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

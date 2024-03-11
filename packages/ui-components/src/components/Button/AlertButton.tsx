@@ -11,6 +11,6 @@ export const AlertButton = (
     const onClick = useCallback(() => {
       window?.alert(alertMessage);
     }, []);
-    return <Button onClick={onClick}>{children}</Button>
+    return <Button onClick={onClick}>{`This is an AlertButton: ${children}`}</Button>
   }
 )
