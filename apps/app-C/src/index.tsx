@@ -1,7 +1,7 @@
 'use client';
 
 import { createRoot } from 'react-dom/client';
-import { LabelledInput } from 'ui-components-package';
+import { LabelledInput } from 'ui-components-demo';
 
 
 const HelloWithLabelledInput = () => {

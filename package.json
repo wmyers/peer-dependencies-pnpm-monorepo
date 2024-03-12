@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "Demo monorepo with pnpm",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre-commit": "pnpm run --filter \"@recipeez/*\" pre-commit",
+    "pre-push": "pnpm run --filter \"@recipeez/*\" pre-push",
+    "prepare": "is-ci || husky"
   },
-  "devDependencies": {
-    "typescript": "5"
+  "pnpm": {
+    "overrides": {
+      "vite": "^5.1.4"
+    }
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "9.0.11",
+    "is-ci": "3.0.1"
+  }
 }

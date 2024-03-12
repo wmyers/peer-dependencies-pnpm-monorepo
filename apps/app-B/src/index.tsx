@@ -1,7 +1,7 @@
 'use client';
 
 import ReactDOM from 'react-dom';
-import { AlertButton } from 'ui-components-package';
+import { AlertButton } from 'ui-components-demo';
 
 const HelloWithButton = () => {
   return <>

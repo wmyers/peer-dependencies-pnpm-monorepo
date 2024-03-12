@@ -11,10 +11,10 @@
   "dependencies": {
     "react": "18",
     "react-dom": "18",
-    "ui-components-package": "workspace:*" 
+    "ui-components-demo": "workspace:*" 
   },
   "dependenciesMeta": {
-    "ui-components-package": {
+    "ui-components-demo": {
       "injected": true
     }
   },
@@ -26,7 +26,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "typescript": "5"
   },
   "license": "ISC"
 }
