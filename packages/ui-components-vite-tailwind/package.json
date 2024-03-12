@@ -50,7 +50,7 @@
     "generate:component": "npx generate-react-cli component",
     "prepare": "pnpm run build",
     "pre-commit": "lint-staged && pnpm run lint:types",
-    "pre-push": "CI=true pnpm test --passWithNoTests --silent"
+    "pre-push": "CI=true pnpm test -- --passWithNoTests --silent"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
