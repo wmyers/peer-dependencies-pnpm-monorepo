@@ -1,10 +1,12 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 // import hq from 'alias-hq';
 import external from '@yelo/rollup-node-external';
+import autoprefixer from 'autoprefixer';
 import postcssPresetEnv from 'postcss-preset-env';
+import tailwindcss from 'tailwindcss';
 import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
@@ -13,7 +15,7 @@ export default defineConfig({
     // resolve: {
     //     alias: hq.get('rollup'),
     // },
-    plugins: [react(), dts({rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)']})],
+    plugins: [react(), dts({ rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)'] })],
     build: {
         sourcemap: true,
         lib: {
@@ -39,7 +41,7 @@ export default defineConfig({
     },
     css: {
         postcss: {
-            plugins: [postcssPresetEnv({})],
+            plugins: [tailwindcss(), autoprefixer({}), postcssPresetEnv({})],
         },
     },
 });

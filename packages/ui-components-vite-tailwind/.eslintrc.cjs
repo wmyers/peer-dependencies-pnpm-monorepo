@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    env: {browser: true, es2020: true, node: true},
+    env: { browser: true, es2020: true, node: true },
     parserOptions: {
         ecmaVersion: 'latest',
         // eslint-disable-next-line no-undef
@@ -31,7 +31,7 @@ module.exports = {
          * Allow empty arrow functions `() => {}`, while keeping other empty functions restricted
          * @see https://eslint.org/docs/latest/rules/no-empty-function#allow-arrowfunctions
          */
-        '@typescript-eslint/no-empty-function': ['error', {allow: ['arrowFunctions']}],
+        '@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
         '@typescript-eslint/ban-ts-comment': 1,
         'no-const-assign': 'error',
         /** Restrict imports from devDependencies since they are not included in library build. peerDependencies are ok */
@@ -73,13 +73,13 @@ module.exports = {
                 singleQuote: true,
                 jsxSingleQuote: false,
                 trailingComma: 'es5',
-                bracketSpacing: false,
+                bracketSpacing: true,
                 jsxBracketSameLine: true,
                 arrowParens: 'avoid',
             },
         ],
         /* Required by vite */
-        'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
+        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         /**
          * Allow unused variables with names stating with '_'

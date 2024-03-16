@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lib > Counter renders without crashing 1`] = `
+exports[`lib-grc > Counter renders without crashing 1`] = `
 <DocumentFragment>
   <div>
     <h2>

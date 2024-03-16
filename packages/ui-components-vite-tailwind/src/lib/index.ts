@@ -1,1 +1,2 @@
-export {Counter} from './CounterDemo';
+import './tailwind.css';
+export * from './components';
