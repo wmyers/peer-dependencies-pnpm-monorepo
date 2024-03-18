@@ -38,7 +38,7 @@ module.exports = {
         'import/no-extraneous-dependencies': [
             'error',
             {
-                devDependencies: false,
+                devDependencies: ['**/*.test.ts{,x}', '**/*.spec.ts{,x}'],
                 peerDependencies: true,
             },
         ],
@@ -96,6 +96,8 @@ module.exports = {
                 args: 'after-used',
             },
         ],
+        /* Switch off react/prop-types as we are using typescript */
+        'react/prop-types': 'off',
     },
     overrides: [
         /* Allow require imports for internal scripts */

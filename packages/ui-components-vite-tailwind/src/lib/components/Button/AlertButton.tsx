@@ -1,10 +1,14 @@
 import { useCallback } from 'react';
 
-import { Button } from './Button';
-import type { AlertButtonProps } from './Button.types';
-export const AlertButton = ({ children, alertMessage }: AlertButtonProps) => {
+import { Button, type ButtonProps } from './Button';
+
+export type AlertButtonProps = {
+    alertMessage: string;
+} & ButtonProps;
+
+export const AlertButton = ({ alertMessage, ...props }: AlertButtonProps) => {
     const onClick = useCallback(() => {
         window?.alert(alertMessage);
     }, [alertMessage]);
-    return <Button onClick={onClick}>{`This is an AlertButton: ${children}`}</Button>;
+    return <Button onClick={onClick} {...props} />;
 };

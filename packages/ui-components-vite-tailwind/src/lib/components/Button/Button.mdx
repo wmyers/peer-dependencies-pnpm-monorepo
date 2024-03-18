@@ -1,0 +1,23 @@
+import { Meta, ArgsTable, Story } from "@storybook/blocks";
+import * as ButtonStories from './Button.stories';
+import { Button } from "./Button";
+
+<Meta title="Components/Button" component={Button} />
+
+# Button Component
+
+## Button props
+
+<ArgsTable of={Button} />
+
+## Description
+
+`Button` component provides a button
+
+## Colors
+
+<Story of={ButtonStories.Colors} />
+
+## Variants
+
+<Story of={ButtonStories.Variants} />

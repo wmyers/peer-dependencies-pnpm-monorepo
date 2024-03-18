@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Counter } from './Counter';
 
 const meta = {
-    title: 'Example/Counter',
+    title: 'GRC Components/Counter',
     component: Counter,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
