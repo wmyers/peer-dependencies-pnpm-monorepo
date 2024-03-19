@@ -11,10 +11,14 @@
   "dependencies": {
     "react": "18",
     "react-dom": "18",
-    "ui-components-demo": "workspace:*" 
+    "ui-components-demo": "workspace:*",
+    "@recipeez/ui-components": "workspace:*"
   },
   "dependenciesMeta": {
     "ui-components-demo": {
+      "injected": true
+    },
+    "@recipeez/ui-components": {
       "injected": true
     }
   },

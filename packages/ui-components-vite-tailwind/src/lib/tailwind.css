@@ -1,5 +1,4 @@
-/* stylelint-disable at-rule-no-unknown */
+@config "./tailwind.components.config.cjs"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* stylelint-enable at-rule-no-unknown */

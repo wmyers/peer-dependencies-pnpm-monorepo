@@ -3,6 +3,6 @@
     "eslint --fix"
   ],
   "*.css": [
-    "stylelint --fix --quiet"
+    "stylelint ./src/**/*.css ./.storybook/**/*.css --fix --quiet"
   ]
 }

@@ -11,12 +11,6 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
-    }
-  },
   "keywords": [
     "react",
     "template",
@@ -41,7 +35,7 @@
     "lint:code": "eslint ./src/ --ext ts,tsx --report-unused-disable-directives",
     "fix:code": "run-s 'lint:code --fix'",
     "lint:types": "tsc --pretty --noEmit",
-    "lint:style": "stylelint ./src/**/*.css",
+    "lint:style": "stylelint ./src/**/*.css ./.storybook/**/*.css",
     "fix:style": "run-s 'lint:style --fix'",
     "test": "jest",
     "preview": "vite preview",
@@ -82,6 +76,7 @@
     "@yelo/rollup-node-external": "^1.0.1",
     "alias-hq": "6.2.3",
     "autoprefixer": "^10.4.18",
+    "cssnano": "^6.1.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
@@ -103,10 +98,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "7.6.17",
-    "stylelint": "15.11.0",
-    "stylelint-config-standard": "34.0.0",
+    "stylelint": "16.2.1",
+    "stylelint-config-standard": "36.0.0",
+    "stylelint-config-tailwindcss": "^0.0.7",
     "stylelint-order": "6.0.4",
-    "stylelint-prettier": "4.1.0",
+    "stylelint-prettier": "5.0.0",
     "tailwindcss": "^3.4.1",
     "ts-jest": "29.1.2",
     "ts-node": "10.9.2",

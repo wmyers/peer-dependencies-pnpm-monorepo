@@ -3,6 +3,9 @@
 import { createRoot } from 'react-dom/client';
 import { LabelledInput } from 'ui-components-demo';
 
+import { AlertButton as AlertButtonTailwind, Button as ButtonTailwind } from '@recipeez/ui-components';
+import '@recipeez/ui-components/dist/style.css';
+
 
 const HelloWithLabelledInput = () => {
   return <>
@@ -12,6 +15,8 @@ const HelloWithLabelledInput = () => {
       <LabelledInput inputType="radio">Choose the red pill</LabelledInput>
       <LabelledInput inputType="radio">Choose the blue pill</LabelledInput>
     </fieldset>
+    <AlertButtonTailwind alertMessage='Now why did you do that with Tailwind?!'>Go on click me</AlertButtonTailwind>
+    <ButtonTailwind color='secondary'>Click me</ButtonTailwind>
   </>
 }
 
