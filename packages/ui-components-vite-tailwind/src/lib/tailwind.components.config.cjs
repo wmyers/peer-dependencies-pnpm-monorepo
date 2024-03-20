@@ -1,4 +1,4 @@
-import rootConfig from '../../tailwind.config.cjs';
+import rootConfig from '../../tailwind.core.config.cjs';
 
 /** @type {import('tailwindcss').Config} */
 export default {
