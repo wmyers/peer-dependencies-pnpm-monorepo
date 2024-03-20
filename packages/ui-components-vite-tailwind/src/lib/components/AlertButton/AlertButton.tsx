@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { Button, type ButtonProps } from './Button';
+import { Button, type ButtonProps } from '../Button/Button';
 
 export type AlertButtonProps = {
     alertMessage: string;

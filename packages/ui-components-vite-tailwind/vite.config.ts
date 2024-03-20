@@ -6,12 +6,14 @@ import { defineConfig } from 'vite';
 import external from '@yelo/rollup-node-external';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 import tailwindcss from 'tailwindcss';
 import dts from 'vite-plugin-dts';
 
 const getPostCSSPlugins = () => {
-    const plugins = [tailwindcss(), autoprefixer(), postcssPresetEnv()];
+    // NB postcssPresetEnv increases css filesize
+    const plugins = [postcssImport(), tailwindcss(), autoprefixer(), postcssPresetEnv()];
     if (process.env.NODE_ENV === 'production') {
         plugins.push(cssnano());
     }
@@ -26,26 +28,26 @@ export default defineConfig({
     // },
     plugins: [react(), dts({ rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)'] })],
     build: {
-        sourcemap: true,
+        // sourcemap: true,
+        // see https://vitejs.dev/config/build-options#build-csscodesplit
+        cssCodeSplit: true,
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: [resolve(__dirname, 'src/lib/index.ts'), resolve(__dirname, 'src/lib/components/Button')],
-            name: 'Library name',
+            entry: [
+                resolve(__dirname, 'src/lib/components/Button/Button'),
+                resolve(__dirname, 'src/lib/components/Typography/Typography'),
+                resolve(__dirname, 'src/lib/components/AlertButton/AlertButton'),
+                resolve(__dirname, 'src/lib/index.ts'),
+            ],
+            name: '@recipeez/ui-components',
             // the proper extensions will be added
-            fileName: 'index',
+            fileName: (format: string, entryName: string) => `${entryName}.${format === 'es' ? 'js' : format}`,
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             // NB @yelo/rollup-node-external externalizes anything in node_modules
             external: external(),
-            output: {
-                // Provide global variables to use in the UMD build
-                // for externalized deps
-                globals: {
-                    react: 'React',
-                },
-            },
         },
     },
     css: {

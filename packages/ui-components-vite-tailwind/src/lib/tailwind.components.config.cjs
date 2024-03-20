@@ -1,8 +1,7 @@
-import rootConfig from '../../tailwind.core.config.cjs';
-
+import coreConfig from '../../tailwind.core.config.cjs';
 /** @type {import('tailwindcss').Config} */
 export default {
-    ...rootConfig,
+    ...coreConfig,
     theme: {
         extend: {
             colors: {

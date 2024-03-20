@@ -3,13 +3,14 @@
 import { createRoot } from 'react-dom/client';
 import { LabelledInput } from 'ui-components-demo';
 
-import { AlertButton as AlertButtonTailwind, Button as ButtonTailwind } from '@recipeez/ui-components';
-import '@recipeez/ui-components/dist/style.css';
+import { AlertButton as AlertButtonTailwind, Button as ButtonTailwind, Typography as TypographyTailwind } from '@recipeez/ui-components';
+import '@recipeez/ui-components/dist/index.css';
 
 
 const HelloWithLabelledInput = () => {
   return <>
     <h1>Hello there with React {import.meta.env.VITE_REACT_VERSION}!</h1>
+    <TypographyTailwind size='h1'>Hello from the Typography component</TypographyTailwind>
     <fieldset style={{width: '400px'}}>
     <legend>Find out what&#39;s going on</legend>
       <LabelledInput inputType="radio">Choose the red pill</LabelledInput>
