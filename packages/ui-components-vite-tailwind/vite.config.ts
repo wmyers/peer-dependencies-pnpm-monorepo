@@ -10,6 +10,14 @@ import postcssPresetEnv from 'postcss-preset-env';
 import tailwindcss from 'tailwindcss';
 import dts from 'vite-plugin-dts';
 
+const getPostCSSPlugins = () => {
+    const plugins = [tailwindcss(), autoprefixer(), postcssPresetEnv()];
+    if (process.env.NODE_ENV === 'production') {
+        plugins.push(cssnano());
+    }
+    return plugins;
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
     // - not needed as not using @ aliases in tsconfig
@@ -42,12 +50,7 @@ export default defineConfig({
     },
     css: {
         postcss: {
-            plugins: [
-                tailwindcss(),
-                autoprefixer({}),
-                postcssPresetEnv({}),
-                process.env.NODE_ENV === 'production' && cssnano(),
-            ],
+            plugins: getPostCSSPlugins(),
         },
     },
 });

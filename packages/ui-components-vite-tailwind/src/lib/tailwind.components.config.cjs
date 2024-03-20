@@ -1,6 +1,8 @@
+import rootConfig from '../../tailwind.config.cjs';
+
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ['./src/lib/**/*.{html,js,ts,jsx,tsx}'],
+    ...rootConfig,
     theme: {
         extend: {
             colors: {
@@ -10,7 +12,6 @@ export default {
             },
         },
     },
-    plugins: [],
     corePlugins: {
         // prevents tailwind global style resets
         preflight: false,
